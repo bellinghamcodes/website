@@ -34,7 +34,7 @@ vet: ## Run tests
 	$(DOCKER) "go vet $(shell go list ${PKG}/... | grep -v /vendor/)"
 
 update-ca: ## Fetches latest root certificates 
-	curl --time-cond certs/ca-certificates.crt -o certs/ca-certificates.crt https://curl.haxx.se/ca/cacert.pem 
+	curl -o certs/ca-certificates.crt https://curl.se/ca/cacert.pem 
 
 generate: ## Create/update code generated files
 	$(DOCKER) "cd $(SRC) && go generate"
