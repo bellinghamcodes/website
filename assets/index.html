@@ -327,17 +327,14 @@
 				if (xhr.status === 200) {
 					statusMessage.className = "success"
 					statusMessage.innerHTML = "<p>Your invitation has been sent. Please check your email.</p>";
-
-					slackForm.parentNode.removeChild(slackForm);
-
 				}
 				else {
 					statusMessage.className = "failure"
-					statusMessage.innerHTML = "<p>There was an error processing your invitation. Please try again later.</p>";
-
-					button.disabled = false;
-					button.innerHTML = originalLabel;
+					statusMessage.innerHTML = "<p>We encountered an unknown error. Please check your email for an invitation from Slack. If you do not receive one please try again later.</p>";
 				}
+
+				button.disabled = false;
+				button.innerHTML = originalLabel;
 			};
 			xhr.send();
 		}
